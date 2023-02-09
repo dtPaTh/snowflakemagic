@@ -46,7 +46,12 @@ class Snowflakemagic(Magics):
                 try:
                     cursor = self.connection.cursor(snowflake.connector.DictCursor)
                     results = []               
-                    for cmd in cell.split(";")[:-1]:
+                    
+                    cmds = cell.split(";")[:-1]
+                    if len(cmds) == 0: 
+                        cmds = [cell]
+
+                    for cmd in cmds:
                         cmd.strip()
                         if len(cmd) > 0 :
                             result = cursor.execute(cmd).fetchall()
@@ -77,6 +82,15 @@ class Snowflakemagic(Magics):
                     return result
         else: 
             return None
+
+    @line_magic('snowflake_script')
+    def executescript(self, line):        
+        if len(line) > 0 and os.path.isfile(line):
+            with open(line) as f:
+                contents = f.read()
+                return self.executecell(line='',cell=contents)
+        else: 
+            return "Script not found!"
 
     def __del__(self):
         self.connection.close()
