@@ -87,17 +87,24 @@ class Snowflakemagic(Magics):
     def executescript(self, line):        
         if len(line) > 0:
             p = line.split(" ")
-            if os.path.isfile(p[0]):
-                with open(p[0]) as f:
-                    contents = f.read()
-                    
-                    for i in range(1, len(p)):
-                        kvp = p[i].split('=')
-                        contents = contents.replace(kvp[0], kvp[1])           
 
-                    return self.executecell(line='',cell=contents)
-            else: 
-                return "Script not found!"
+            scripts = p[0].split('<<')
+
+            contents = ''
+            for script in scripts: 
+                if os.path.isfile(script):
+                    with open(script) as f:
+                        content = f.read()
+                        for i in range(1, len(p)):
+                            kvp = p[i].split('=')
+                            if kvp[1]=='EMPTY': kvp[1] = ''
+                            content = content.replace(kvp[0], kvp[1])           
+                        contents+="\n"+content
+                else: 
+                    return 'Script "'+script+'" not found!'
+                
+            return self.executecell(line='',cell=contents)
+            
         else: 
             return "No scriptfile provided"
 

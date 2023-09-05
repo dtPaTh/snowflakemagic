@@ -142,9 +142,3 @@ df = pd.DataFrame(my_result)
 
 #...
 ```
-
-## Getting Started
-If you are new to Jupyter notebooks, I recommend getting started using [Jupyter notebooks in Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
-
-1. Configure .env file providing connection parameters as explained [above](#%snowflake_auth)
-2. Start using [getting-started.ipynp](getting-started.ipynb) to learn how to use the magic functions

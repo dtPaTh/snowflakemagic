@@ -1,3 +1,6 @@
 .env
-snowflakemagic/__pycache__/
-*.snowql
+.pyirc
+
+build/
+dist/
+__pycache__/

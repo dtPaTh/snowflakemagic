@@ -1,6 +1,12 @@
+pyproject.toml
+readme.md
+setup.cfg
 setup.py
+snowflakemagic/__init__.py
+snowflakemagic/snowflakemagic.py
 snowflakemagic.egg-info/PKG-INFO
 snowflakemagic.egg-info/SOURCES.txt
 snowflakemagic.egg-info/dependency_links.txt
 snowflakemagic.egg-info/requires.txt
 snowflakemagic.egg-info/top_level.txt
+snowflakemagic.egg-info/zip-safe
