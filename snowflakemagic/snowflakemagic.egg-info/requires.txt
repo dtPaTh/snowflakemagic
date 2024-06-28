@@ -1,3 +1,4 @@
 ipython
 jupyter
 python-dotenv
+snowflake-connector-python

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: snowflakemagic
-Version: 1.0.0
+Version: 1.0.1
 Summary: IPython magic function for Snowflake Query Language (SQL)
 Home-page: https://github.com/dtPaTh/snowflakemagic
 Author: Patrick Thurner
@@ -10,6 +10,10 @@ Keywords: Notebook,Jupyter,Snowflake
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
 Description-Content-Type: text/markdown
+Requires-Dist: ipython
+Requires-Dist: jupyter
+Requires-Dist: python-dotenv
+Requires-Dist: snowflake-connector-python
 
 # Snowflake Magic 
 
